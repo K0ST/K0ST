@@ -1,9 +1,9 @@
-@import url("http://fonts.googleapis.com/css?family=PT+Serif:400,400");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400italic,700italic,400,700");
 @font-face {
-  font-family: 'Monaco';
+  font-family: 'FontAwesome';
   font-style: normal;
   font-weight: normal;
-  src: url("font/monaco.TTF");
+  src: url("fonts/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/fontawesome-webfont.woff") format('woff'), url("fonts/fontawesome-webfont.ttf") format('truetype'), url("fonts/fontawesome-webfont.svg#FontAwesomeRegular") format('svg');
 }
 html {
   background: #6c7989;
@@ -17,10 +17,9 @@ html {
 body {
   padding: 50px 0;
   margin: 0;
-  font: 1em/1.5 "PT Serif", "Microsoft Yahei";
+  font: 1em/1.5 "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #555;
   font-weight: 300;
-  background: url("images/checker.png") top left;
 }
 .wrapper {
   width: 680px;
@@ -49,11 +48,11 @@ strong {
   font-weight: 700;
 }
 .content {
-  background: -webkit-linear-gradient(#fafafa, #f2f2f2 700px);
-  background: -moz-linear-gradient(#fafafa, #f2f2f2 700px);
-  background: -o-linear-gradient(#fafafa, #f2f2f2 700px);
-  background: -ms-linear-gradient(#fafafa, #f2f2f2 700px);
-  background: linear-gradient(#fafafa, #f2f2f2 700px);
+  background: -webkit-linear-gradient(#fafafa, #dedede 700px);
+  background: -moz-linear-gradient(#fafafa, #dedede 700px);
+  background: -o-linear-gradient(#fafafa, #dedede 700px);
+  background: -ms-linear-gradient(#fafafa, #dedede 700px);
+  background: linear-gradient(#fafafa, #dedede 700px);
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
   border-top: 1px solid #fff;
@@ -85,10 +84,9 @@ strong {
   float: left;
 }
 #header .nav {
-  font-family: 'Monaco';
   float: right;
   font-size: 0.875em;
-  font-family: "PT Serif", "Microsoft Yahei";
+  font-family: "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 2.5em;
 }
 #header .nav ul {
@@ -115,9 +113,7 @@ strong {
   color: #61778b;
   width: 300px;
   font-size: 0.8125em;
-}
-#header a {
-  color: #191919;
+  font-style: italic;
 }
 article {
   padding: 15px 30px;
@@ -267,7 +263,7 @@ article header .icon:before {
   text-align: center;
 }
 article header time {
-  font: 0.9em "PT Serif", "Microsoft Yahei";
+  font: 0.9em "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-bottom: 5px;
   display: block;
   line-height: 1;
@@ -504,7 +500,7 @@ article footer .tags:before {
 #pagination a {
   display: block;
   padding: 5px 10px;
-  font-family: "PT Serif", "Microsoft Yahei";
+  font-family: "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   background: #069;
   color: #fff;
   text-decoration: none;
