@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-08T10:13:48.332Z</updated>
+  <updated>2014-11-08T10:53:12.161Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -16,14 +16,14 @@
   
   <entry>
     <title><![CDATA[Initial Commit]]></title>
-    <link href="http://jinyudong.com/2014/11/07/hello-world/"/>
-    <id>http://jinyudong.com/2014/11/07/hello-world/</id>
-    <published>2014-11-07T09:35:58.000Z</published>
-    <updated>2014-11-07T09:35:58.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to my blog.<br><a id="more"></a></p>
+    <link href="http://jinyudong.com/2014/11/08/hello-world/"/>
+    <id>http://jinyudong.com/2014/11/08/hello-world/</id>
+    <published>2014-11-08T10:52:53.000Z</published>
+    <updated>2014-11-08T10:52:53.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to my blog</p>
 <h2 id="Quick_Start">Quick Start</h2>
 <h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fuck you</div></pre></td></tr></table></figure>
 
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run_server">Run server</h3>
@@ -39,8 +39,10 @@
 
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Welcome to my blog.<br>]]>
-    
+    <![CDATA[<p>Welcome to my blog</p>
+<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="Create_a_new_post">Create a new post</h3>
+<figure class="highlight j]]>
     </summary>
     
   </entry>
