@@ -22,7 +22,7 @@ body {
   font-weight: 300;
 }
 .wrapper {
-  width: 680px;
+  width: 800px;
   margin: 0 auto;
   background: #dedede;
   -webkit-border-radius: 8px;
@@ -48,11 +48,11 @@ strong {
   font-weight: 700;
 }
 .content {
-  background: -webkit-linear-gradient(#fafafa, #dedede 700px);
-  background: -moz-linear-gradient(#fafafa, #dedede 700px);
-  background: -o-linear-gradient(#fafafa, #dedede 700px);
-  background: -ms-linear-gradient(#fafafa, #dedede 700px);
-  background: linear-gradient(#fafafa, #dedede 700px);
+  background: -webkit-linear-gradient(#fbfbfb, #f8f8f8 700px);
+  background: -moz-linear-gradient(#fbfbfb, #f8f8f8 700px);
+  background: -o-linear-gradient(#fbfbfb, #f8f8f8 700px);
+  background: -ms-linear-gradient(#fbfbfb, #f8f8f8 700px);
+  background: linear-gradient(#fbfbfb, #f8f8f8 700px);
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
   border-top: 1px solid #fff;
@@ -85,7 +85,7 @@ strong {
 }
 #header .nav {
   float: right;
-  font-size: 0.875em;
+  font-size: 0.93em;
   font-family: "Droid Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 2.5em;
 }
@@ -99,7 +99,7 @@ strong {
 #header h1 {
   margin: 0;
   padding: 0;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: normal;
   line-height: 1.2;
   color: #069;
@@ -112,8 +112,7 @@ strong {
   margin: 0;
   color: #61778b;
   width: 300px;
-  font-size: 0.8125em;
-  font-style: italic;
+  font-size: 0.9em;
 }
 article {
   padding: 15px 30px;
@@ -553,7 +552,7 @@ article footer .tags:before {
   font-size: 1.1em;
 }
 #footer {
-  width: 680px;
+  width: 800px;
   margin: 20px auto 0;
   padding: 20px 0 0;
   font-size: 0.875em;
