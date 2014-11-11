@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-08T13:32:05.920Z</updated>
+  <updated>2014-11-11T15:14:40.245Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -15,34 +15,35 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[How to create ripple effect]]></title>
+    <link href="http://jinyudong.com/2014/11/11/How-to-create-ripple-effect/"/>
+    <id>http://jinyudong.com/2014/11/11/How-to-create-ripple-effect/</id>
+    <published>2014-11-11T15:07:25.000Z</published>
+    <updated>2014-11-11T15:14:27.000Z</updated>
+    <content type="html"><![CDATA[<p>挖个坑，分析一下Material design 中的ripple effect是如何实现的。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>挖个坑，分析一下Material design 中的ripple effect是如何实现的。</p>
+]]>
+    </summary>
+    
+      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
+    
+      <category term="material design" scheme="http://jinyudong.com/tags/material-design/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Initial Commit]]></title>
     <link href="http://jinyudong.com/2014/11/08/hello-world/"/>
     <id>http://jinyudong.com/2014/11/08/hello-world/</id>
-    <published>2014-11-08T10:52:53.000Z</published>
-    <updated>2014-11-08T10:52:53.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to my blog</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fuck you</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
+    <published>2014-11-08T13:38:07.000Z</published>
+    <updated>2014-11-11T15:12:10.000Z</updated>
+    <content type="html"><![CDATA[<p>Blog starts from here.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Welcome to my blog</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight j]]>
+    <![CDATA[<p>Blog starts from here.</p>
+]]>
     </summary>
     
   </entry>
