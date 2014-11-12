@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-12T14:52:26.870Z</updated>
+  <updated>2014-11-12T14:59:18.511Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/"/>
     <id>http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/</id>
     <published>2014-11-12T14:25:38.000Z</published>
-    <updated>2014-11-12T14:52:15.000Z</updated>
+    <updated>2014-11-12T14:59:07.000Z</updated>
     <content type="html"><![CDATA[<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br><a id="more"></a></p>
 <h2 id="设置host">设置host</h2>
 <p>首先在etc/hosts中设置hosts，需要管理员权限。使用vim对hosts进行编辑：</p>
@@ -38,6 +38,7 @@
 <p>然后勾选强制使用http:</p>
 <p><img src="http://dl2.iteye.com/upload/attachment/0097/7097/c75ffa94-21b5-3d90-8a22-a55d1c78b5d6.png" alt=""></p>
 <p>然后就大功告成，可以愉快飞速的下载Android SDK而不用担心翻墙网速等问题啦。</p>
+<p>参考：<a href="http://qianjigui.iteye.com/blog/2074695" target="_blank" rel="external">Android Studio SDK Manager无法正常下载如何设置</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br>]]>
