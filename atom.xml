@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-12T14:59:18.511Z</updated>
+  <updated>2014-11-12T15:07:14.267Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -15,12 +15,14 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Android Studio SDK Update]]></title>
+    <title><![CDATA[]]></title>
     <link href="http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/"/>
     <id>http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/</id>
-    <published>2014-11-12T14:25:38.000Z</published>
-    <updated>2014-11-12T14:59:07.000Z</updated>
-    <content type="html"><![CDATA[<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br><a id="more"></a></p>
+    <published>2014-11-12T15:07:04.000Z</published>
+    <updated>2014-11-12T15:07:04.000Z</updated>
+    <content type="html"><![CDATA[<p>title: [转载]Android Studio SDK Update<br>date: 2014-11-12 22:25:38</p>
+<h2 id="tags:_[android,android_studio,sdk]">tags: [android,android studio,sdk]</h2>
+<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br><a id="more"></a></p>
 <h2 id="设置host">设置host</h2>
 <p>首先在etc/hosts中设置hosts，需要管理员权限。使用vim对hosts进行编辑：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim hosts</div></pre></td></tr></table></figure>
@@ -41,15 +43,11 @@
 <p>参考：<a href="http://qianjigui.iteye.com/blog/2074695" target="_blank" rel="external">Android Studio SDK Manager无法正常下载如何设置</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br>]]>
+    <![CDATA[<p>title: [转载]Android Studio SDK Update<br>date: 2014-11-12 22:25:38</p>
+<h2 id="tags:_[android,android_studio,sdk]">tags: [android,android studio,sdk]</h2>
+<p>本文章介绍如何在不翻墙的情况下，更新android sdk<br>]]>
     
     </summary>
-    
-      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
-    
-      <category term="android studio" scheme="http://jinyudong.com/tags/android-studio/"/>
-    
-      <category term="sdk" scheme="http://jinyudong.com/tags/sdk/"/>
     
   </entry>
   
