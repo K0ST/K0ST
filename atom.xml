@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-12T14:50:01.460Z</updated>
+  <updated>2014-11-12T14:51:13.572Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -15,14 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[]]></title>
+    <title><![CDATA[Android Studio SDK Update]]></title>
     <link href="http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/"/>
     <id>http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/</id>
-    <published>2014-11-12T14:49:26.000Z</published>
-    <updated>2014-11-12T14:49:26.000Z</updated>
-    <content type="html"><![CDATA[<p>title: Android Studio SDK Update<br>date: 2014-11-12 22:25:38</p>
-<h2 id="tags:[android,android_studio,sdk]">tags:[android,android studio,sdk]</h2>
-<h2 id="设置host">设置host</h2>
+    <published>2014-11-12T14:25:38.000Z</published>
+    <updated>2014-11-12T14:51:07.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="设置host">设置host</h2>
 <p>首先在etc/hosts中设置hosts，需要管理员权限。使用vim对hosts进行编辑：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim hosts</div></pre></td></tr></table></figure>
 
@@ -41,9 +39,16 @@
 <p>然后就大功告成，可以愉快飞速的下载Android SDK而不用担心翻墙网速等问题啦。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: Android Studio SDK Update<br>date: 2014-11-12 22:25:38</p>
-<h2 id="tags:[android,android_studio,sdk]">tags:[android,android studio]]>
+    <![CDATA[<h2 id="设置host">设置host</h2>
+<p>首先在etc/hosts中设置hosts，需要管理员权限。使用vim对hosts进行编辑：</p>
+<figure class="highlight bash"><table><tr><td class="gutter]]>
     </summary>
+    
+      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
+    
+      <category term="android studio" scheme="http://jinyudong.com/tags/android-studio/"/>
+    
+      <category term="sdk" scheme="http://jinyudong.com/tags/sdk/"/>
     
   </entry>
   
