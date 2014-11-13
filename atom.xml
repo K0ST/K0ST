@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-13T05:29:08.588Z</updated>
+  <updated>2014-11-13T05:30:26.537Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -84,11 +84,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android Studio SDK Update[转载]]]></title>
+    <title><![CDATA[Android Studio SDK 更新方法]]></title>
     <link href="http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/"/>
     <id>http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/</id>
     <published>2014-11-12T14:25:38.000Z</published>
-    <updated>2014-11-13T05:26:32.000Z</updated>
+    <updated>2014-11-13T05:30:16.000Z</updated>
     <content type="html"><![CDATA[<p>通常情况下，下载Android SDK需要连接谷歌的服务器进行下载，由于国内水深火热的网络，速度基本为0.好在国内也有一个更新的镜像地址。本文章介绍如何在不翻墙的情况下，使用国内镜像地址，更新android sdk.</p>
 <a id="more"></a>
 
