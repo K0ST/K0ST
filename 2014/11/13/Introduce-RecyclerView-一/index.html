@@ -1,26 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[KOST]]></title>
-  <subtitle><![CDATA[Do not ship shits.]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://jinyudong.com/"/>
-  <updated>2014-11-13T05:29:08.588Z</updated>
-  <id>http://jinyudong.com/</id>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <author>
-    <name><![CDATA[Jin Yudong]]></name>
-    <email><![CDATA[kost@outlook.com]]></email>
-  </author>
+  <title>Introducing RecyclerView(一) | KOST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
-  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+    <meta name="author" content="Jin Yudong">
   
-  <entry>
-    <title><![CDATA[Introducing RecyclerView(一)]]></title>
-    <link href="http://jinyudong.com/2014/11/13/Introduce-RecyclerView-%E4%B8%80/"/>
-    <id>http://jinyudong.com/2014/11/13/Introduce-RecyclerView-一/</id>
-    <published>2014-11-12T16:06:42.000Z</published>
-    <updated>2014-11-13T05:28:45.000Z</updated>
-    <content type="html"><![CDATA[<p>RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.</p>
+  
+    <meta name="description" content="RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.
+介绍
+RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和">
+  
+  <meta name="description" content="RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.
+介绍
+RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing RecyclerView(一)">
+<meta property="og:url" content="http://jinyudong.com/2014/11/13/Introduce-RecyclerView-一/">
+<meta property="og:site_name" content="KOST">
+<meta property="og:description" content="RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.
+介绍
+RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和">
+<meta property="og:image" content="https://developer.android.com/training/material/images/RecyclerView.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introducing RecyclerView(一)">
+<meta name="twitter:description" content="RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.
+介绍
+RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和">
+
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">KOST</a></h1>
+    <p><a href="/">Do not ship shits.</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/atom.xml">Rss</a></li>
+      
+        <li><a href="/About">About</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2014/11/13/Introduce-RecyclerView-一/">
+  <time datetime="2014-11-12T16:06:42.000Z">
+    Nov 13 2014
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Introducing RecyclerView(一)</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.</p>
 <h2 id="介绍">介绍</h2>
 <p>RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和处理:</p>
 <ul>
@@ -62,101 +127,68 @@
 <h3 id="3、运行">3、运行</h3>
 <p>写完这些代码这个例子既可以跑起来了。从例子也可以看出来，RecyclerView的用法并不比ListView复杂，反而更灵活好用，它将数据、排列方式、数据的展示方式都分割开来，因此可定制型，自定义的形式也非常多，非常灵活。</p>
 <p>本节介绍的是一个最最简单的RecyclerView的使用方法，后面将介绍一些更高级的用法。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.</p>
-<h2 id="介绍">介绍</h2>
-<p>RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和处理:</p>
-<ul>
-<li>使用LayoutManager来确定每一个item的排列方式。</li>
-<li>为增加和删除项目提供默认的动画效果。 </li>
-</ul>
-]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
-    
-      <category term="recycler view" scheme="http://jinyudong.com/tags/recycler-view/"/>
-    
-      <category term="sdk" scheme="http://jinyudong.com/tags/sdk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android Studio SDK Update[转载]]]></title>
-    <link href="http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/"/>
-    <id>http://jinyudong.com/2014/11/12/Android-Studio-SDK-Update/</id>
-    <published>2014-11-12T14:25:38.000Z</published>
-    <updated>2014-11-13T05:26:32.000Z</updated>
-    <content type="html"><![CDATA[<p>通常情况下，下载Android SDK需要连接谷歌的服务器进行下载，由于国内水深火热的网络，速度基本为0.好在国内也有一个更新的镜像地址。本文章介绍如何在不翻墙的情况下，使用国内镜像地址，更新android sdk.</p>
-<a id="more"></a>
 
-<h2 id="设置host">设置host</h2>
-<p>首先在etc/hosts中设置hosts，需要管理员权限。使用vim对hosts进行编辑：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim hosts</div></pre></td></tr></table></figure>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/android/">android</a>, <a class="tags-link" href="/tags/recycler-view/">recycler view</a>, <a class="tags-link" href="/tags/sdk/">sdk</a>
+  </div>
 
-<p>输入密码后进行编辑，添加如下几行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Google主页  </span></div><div class="line"><span class="number">203.208</span>.<span class="number">46.146</span> www.google.com  </div><div class="line"><span class="comment">##这行是为了方便打开Android开发官网 现在好像不翻也可以打开  </span></div><div class="line"><span class="number">74.125</span>.<span class="number">113.121</span> developer.android.com  </div><div class="line"><span class="comment">##更新的内容从以下地址下载  </span></div><div class="line"><span class="number">203.208</span>.<span class="number">46.146</span> dl.google.com  </div><div class="line"><span class="number">203.208</span>.<span class="number">46.146</span> dl-ssl.google.com</div></pre></td></tr></table></figure>
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
 
-<h2 id="更改Android_SDK_Manager设置">更改Android SDK Manager设置</h2>
-<p><img src="http://dl2.iteye.com/upload/attachment/0097/7095/7e128ac5-bd43-38f4-8f8d-eaf388138c90.png" alt=""></p>
-<p>在Preference中进行设置，修改配置如下：</p>
-<blockquote>
-<p>HTTP Proxy Server: mirrors.neusoft.edu.cn</p>
-<p>HTTP Proxy Port: 80</p>
-</blockquote>
-<p>然后勾选强制使用http:</p>
-<p><img src="http://dl2.iteye.com/upload/attachment/0097/7097/c75ffa94-21b5-3d90-8a22-a55d1c78b5d6.png" alt=""></p>
-<p>然后就大功告成，可以愉快飞速的下载Android SDK而不用担心翻墙网速等问题啦。</p>
-<p>参考：<a href="http://qianjigui.iteye.com/blog/2074695" target="_blank" rel="external">Android Studio SDK Manager无法正常下载如何设置</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>通常情况下，下载Android SDK需要连接谷歌的服务器进行下载，由于国内水深火热的网络，速度基本为0.好在国内也有一个更新的镜像地址。本文章介绍如何在不翻墙的情况下，使用国内镜像地址，更新android sdk.</p>
-]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
-    
-      <category term="android studio" scheme="http://jinyudong.com/tags/android-studio/"/>
-    
-      <category term="sdk" scheme="http://jinyudong.com/tags/sdk/"/>
-    
-  </entry>
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div class="ds-thread" data-title="Introducing RecyclerView(一)">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
   
-  <entry>
-    <title><![CDATA[How to create a ripple effect]]></title>
-    <link href="http://jinyudong.com/2014/11/11/How-to-create-ripple-effect/"/>
-    <id>http://jinyudong.com/2014/11/11/How-to-create-ripple-effect/</id>
-    <published>2014-11-11T15:07:25.000Z</published>
-    <updated>2014-11-11T15:15:46.000Z</updated>
-    <content type="html"><![CDATA[<p>挖个坑，分析一下Material design 中的ripple effect是如何实现的。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>挖个坑，分析一下Material design 中的ripple effect是如何实现的。</p>
-]]>
-    </summary>
-    
-      <category term="android" scheme="http://jinyudong.com/tags/android/"/>
-    
-      <category term="material design" scheme="http://jinyudong.com/tags/material-design/"/>
-    
-  </entry>
+  &copy; 2014 <a href="/">Jin Yudong</a>
   
-  <entry>
-    <title><![CDATA[Initial Commit]]></title>
-    <link href="http://jinyudong.com/2014/11/08/hello-world/"/>
-    <id>http://jinyudong.com/2014/11/08/hello-world/</id>
-    <published>2014-11-08T13:38:07.000Z</published>
-    <updated>2014-11-11T15:12:10.000Z</updated>
-    <content type="html"><![CDATA[<p>Blog starts from here.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Blog starts from here.</p>
-]]>
-    </summary>
-    
-  </entry>
-  
-</feed>
+</div>
+<div class="theme-copyright">
+  Weibo: <a href="http://weibo.com/kosts" target="_blank">KOST </a>
+   | 
+  Github: <a href="https://github.com/K0ST" target="_blank">K0ST</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jinyudong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
