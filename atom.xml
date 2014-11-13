@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-13T05:30:26.537Z</updated>
+  <updated>2014-11-13T16:27:54.530Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2014/11/13/Introduce-RecyclerView-%E4%B8%80/"/>
     <id>http://jinyudong.com/2014/11/13/Introduce-RecyclerView-一/</id>
     <published>2014-11-12T16:06:42.000Z</published>
-    <updated>2014-11-13T05:28:45.000Z</updated>
+    <updated>2014-11-13T16:12:43.000Z</updated>
     <content type="html"><![CDATA[<p>RecyclerView 是Android L版本中新添加的一个用来取代ListView的SDK，它的灵活性与可替代性比listview更好。接下来通过一系列的文章讲解如何使用RecyclerView,彻底抛弃ListView.</p>
 <h2 id="介绍">介绍</h2>
 <p>RecyclerView与ListView原理是类似的：都是仅仅维护少量的View并且可以展示大量的数据集。RecyclerView用以下两种方式简化了数据的展示和处理:</p>
@@ -61,6 +61,18 @@
 
 <h3 id="3、运行">3、运行</h3>
 <p>写完这些代码这个例子既可以跑起来了。从例子也可以看出来，RecyclerView的用法并不比ListView复杂，反而更灵活好用，它将数据、排列方式、数据的展示方式都分割开来，因此可定制型，自定义的形式也非常多，非常灵活。</p>
+<h4 id="横向布局">横向布局</h4>
+<p>如果想要一个横向的List只要设置LinearLayoutManager如下就行，注意要声明mLayoutManager的类型是LinearLayoutManager而不是父类LayoutManager：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);</div></pre></td></tr></table></figure>
+
+<h4 id="Grid布局">Grid布局</h4>
+<p>如果想要一个Grid布局的列表，只要声明LayoutManager为GridLayoutManager即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mLayoutManager = <span class="keyword">new</span> GridLayoutManager(context,columNum);</div><div class="line">mRecyclerView.setLayoutManager(mLayoutManager);</div></pre></td></tr></table></figure>
+
+<p>注意，在Grid布局中也可以设置列表的Orientation属性，来实现横向和纵向的Grid布局。</p>
+<h4 id="瀑布流布局">瀑布流布局</h4>
+<p>瀑布流就使用StaggeredGridLayoutManager吧，具体方法与上面类似，就不做介绍啦。</p>
+<h2 id="总结">总结</h2>
 <p>本节介绍的是一个最最简单的RecyclerView的使用方法，后面将介绍一些更高级的用法。</p>
 ]]></content>
     <summary type="html">
