@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Introducing RecyclerView(二) | KOST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="Jin Yudong">
+  
+  
+    <meta name="description" content="当使用了一段时间的RecyclerView，发现为其每一项添加点击事件并没有ListView那么轻松，像ListView直接加个OnItemClickListener就行了。实际上我们不要把RecyclerView当做ListView的一个升级版，希望大家把他看做一个容器，同时里面包含了很多不同的Item，它们可以以不同方式排列组合，非常灵活，点击方式你可以按照你自己的意愿进行实现。
+本节主要讲解">
+  
+  <meta name="description" content="当使用了一段时间的RecyclerView，发现为其每一项添加点击事件并没有ListView那么轻松，像ListView直接加个OnItemClickListener就行了。实际上我们不要把RecyclerView当做ListView的一个升级版，希望大家把他看做一个容器，同时里面包含了很多不同的Item，它们可以以不同方式排列组合，非常灵活，点击方式你可以按照你自己的意愿进行实现。
+本节主要讲解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing RecyclerView(二)">
+<meta property="og:url" content="http://jinyudong.com/2014/11/14/add-listener-on-recyclerview/">
+<meta property="og:site_name" content="KOST">
+<meta property="og:description" content="当使用了一段时间的RecyclerView，发现为其每一项添加点击事件并没有ListView那么轻松，像ListView直接加个OnItemClickListener就行了。实际上我们不要把RecyclerView当做ListView的一个升级版，希望大家把他看做一个容器，同时里面包含了很多不同的Item，它们可以以不同方式排列组合，非常灵活，点击方式你可以按照你自己的意愿进行实现。
+本节主要讲解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introducing RecyclerView(二)">
+<meta name="twitter:description" content="当使用了一段时间的RecyclerView，发现为其每一项添加点击事件并没有ListView那么轻松，像ListView直接加个OnItemClickListener就行了。实际上我们不要把RecyclerView当做ListView的一个升级版，希望大家把他看做一个容器，同时里面包含了很多不同的Item，它们可以以不同方式排列组合，非常灵活，点击方式你可以按照你自己的意愿进行实现。
+本节主要讲解">
+
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">KOST</a></h1>
+    <p><a href="/">Do not ship shits.</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/atom.xml">Rss</a></li>
+      
+        <li><a href="/About">About</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2014/11/14/add-listener-on-recyclerview/">
+  <time datetime="2014-11-14T12:29:10.000Z">
+    Nov 14 2014
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Introducing RecyclerView(二)</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>当使用了一段时间的RecyclerView，发现为其每一项添加点击事件并没有ListView那么轻松，像ListView直接加个OnItemClickListener就行了。<strong>实际上我们不要把RecyclerView当做ListView的一个升级版</strong>，希望大家把他看做一个容器，同时里面包含了很多不同的Item，它们可以以不同方式排列组合，非常灵活，点击方式你可以按照你自己的意愿进行实现。</p>
+<p>本节主要讲解如何为RecyclerView添加点击事件, 并简单介绍如何进行Item增加删除。</p>
+<a id="more"></a>
+
+<h2 id="添加点击事件">添加点击事件</h2>
+<p><a href="http://jinyudong.com/2014/11/13/Introduce-RecyclerView-%E4%B8%80/" target="_blank" rel="external">上一节</a>中我们讲了如何使用RecyclerView的Adpater，其实我们会发现，Adapter是添加点击事件一个很好的地方，里面是构造布局等View的主要场所，也是数据和布局进行绑定的地方。首先我们在Adapter中创建一个实现点击接口，其中view是点击的Item，data是我们的数据，因为我们想知道我点击的区域部分的数据是什么，以便我下一步进行操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnRecyclerViewItemClickListener</span> </span>{</div><div class="line">    <span class="keyword">void</span> onClick(View view , DataModel data);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>定义完接口，添加接口和设置Adapter接口的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> OnRecyclerViewItemClickListener mOnItemClickListener = <span class="keyword">null</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnItemClickListener</span>(OnRecyclerViewItemClickListener listener) {</div><div class="line">    <span class="keyword">this</span>.mOnItemClickListener = listener;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>那么这个接口用在什么地方呢？如下代码所示，我们为Adapter实现OnClickListener方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">MyAdapter</span>.<span class="title">ViewHolder</span>&gt; <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span></span>{</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> ViewHolder <span class="title">onCreateViewHolder</span>(ViewGroup viewGroup, <span class="keyword">final</span> <span class="keyword">int</span> i) {</div><div class="line">        View view = LayoutInflater.from(viewGroup.getContext())</div><div class="line">                .inflate(R.layout.item, viewGroup, <span class="keyword">false</span>);</div><div class="line">        ViewHolder vh = <span class="keyword">new</span> ViewHolder(view);</div><div class="line">        <span class="comment">//将创建的View注册点击事件</span></div><div class="line">        view.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">return</span> vh;</div><div class="line">    }</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span>(ViewHolder viewHolder, <span class="keyword">final</span> <span class="keyword">int</span> i) {</div><div class="line">        viewHolder.mTextView.setText(datas.get(i).title);</div><div class="line">        <span class="comment">//将数据保存在itemView的Tag中，以便点击时进行获取</span></div><div class="line">        viewHolder.itemView.setTag(datas.get(i));</div><div class="line">    }</div><div class="line">	...</div><div class="line">	 <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span>(View v) {</div><div class="line">        <span class="keyword">if</span> (mOnItemClickListener != <span class="keyword">null</span>) {</div><div class="line">            <span class="comment">//注意这里使用getTag方法获取数据</span></div><div class="line">            mOnItemClickListener.onClick(v,(DataModel)v.getTag());</div><div class="line">        }</div><div class="line">    }</div><div class="line">	...</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>做完这些事情，我们就可以在Activity或其他地方为RecyclerView添加项目点击事件了，如在MainActivity中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mAdapter = <span class="keyword">new</span> MyAdapter(getDummyDatas());</div><div class="line">mRecyclerView.setAdapter(mAdapter);</div><div class="line">mAdapter.setOnItemClickListener(<span class="keyword">new</span> MyAdapter.OnRecyclerViewItemClickListener() {</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span>(View view, DataModel data) {</div><div class="line">        <span class="comment">//DO your fucking bussiness here!</span></div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>完成了以上代码就可以为RecyclerView添加项目点击事件了，下面我们来看看RecyclerView如何添加和删除数据并在界面上显示。</p>
+<h2 id="添加删除数据">添加删除数据</h2>
+<p>以前在ListView当中，我们只要修改后数据用Adapter的notifyDatasetChange一下就可以更新界面。然而在RecyclerView中还有一些更高级的用法：</p>
+<p>添加数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addItem</span>(DataModel content, <span class="keyword">int</span> position) {</div><div class="line">    datas.add(position, content);</div><div class="line">    notifyItemInserted(position); <span class="comment">//Attention!</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>删除数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeItem</span>(DataModel model) {</div><div class="line">    <span class="keyword">int</span> position = datas.indexOf(model);</div><div class="line">    datas.remove(position);</div><div class="line">    notifyItemRemoved(position);<span class="comment">//Attention!</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>值得注意的是RecyclerView的添加删除都是有默认的动画效果的，如果没有效果可以添加如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mRecyclerView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div></pre></td></tr></table></figure>
+
+<p>当然啦你也可以自己定义你自己的Animator，等我研究明白了也来讲一讲如何自定义这些效果~</p>
+<p>感谢阅读，如果有什么建议或是错误的地方可以在底下留言~</p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/android/">android</a>, <a class="tags-link" href="/tags/recycler-view/">recycler view</a>, <a class="tags-link" href="/tags/sdk/">sdk</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div class="ds-thread" data-title="Introducing RecyclerView(二)">
+  </div>
+</section>
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2014 <a href="/">Jin Yudong</a>
+  
+</div>
+<div class="theme-copyright">
+  Weibo: <a href="http://weibo.com/kosts" target="_blank">KOST </a>
+   | 
+  Github: <a href="https://github.com/K0ST" target="_blank">K0ST</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jinyudong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
