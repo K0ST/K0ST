@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-11-14T13:05:25.497Z</updated>
+  <updated>2014-12-22T17:07:44.142Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -13,6 +13,93 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[庖丁解牛之Volley篇(一) - 简单介绍与使用方法]]></title>
+    <link href="http://jinyudong.com/2014/12/22/Volley-1/"/>
+    <id>http://jinyudong.com/2014/12/22/Volley-1/</id>
+    <published>2014-12-22T13:17:06.000Z</published>
+    <updated>2014-12-22T17:07:07.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p><em>笔者也是小菜鸟，文中可能会有一些误解或者错误的地方，欢迎指出交流</em></p>
+</blockquote>
+<h2 id="什么是Volley">什么是Volley</h2>
+<p>Volley是google在2013年IO大会上推出的一个轻量级HTTP库，可以让Android上面的网络操作的构建变得异常简单，而且响应更加迅速。据说google内部测试了很多种HTTP库，Volley在每一项测试中都取得了最好的成绩。真假不知道，但是这个开源库的内部实现肯定会引起程序猿的兴趣，它内部是如何实现的呢？我们能从这个开源库里面学到一些什么东西呢？这就是接下来一系列的博文给大家讲述的内容。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>本文中的内容基本来自于Google的<a href="http://developer.android.com/training/volley/index.html" target="_blank" rel="external">官方文档</a>，如果熟悉Volley的使用方法，可以跳过本文章。</p>
+</blockquote>
+<p>Volley的优势有以下几点：</p>
+<ul>
+<li>网络请求的队列化、自动化处理</li>
+<li>多网络连接并发</li>
+<li>使用文件和内存Cache机制实现HTTP的快速响应</li>
+<li>支持网络请求的自定义优先级</li>
+<li>网络请求的取消功能，可以对指定范围或指定种类的网络请求进行取消</li>
+<li>傻瓜式自定义，如可以自定义重试策略</li>
+<li>数据显示与网络请求的异步</li>
+<li>强大的跟踪与调试工具</li>
+</ul>
+<p>优点说了这么多，到底是如何做到的呢？别着急，了解内部实现之前，先来了解一下Volley的简单用法。</p>
+<h2 id="Volley的简单使用方法">Volley的简单使用方法</h2>
+<h3 id="发送请求">发送请求</h3>
+<p>使用Volley时，需要创建一个RequestQueue，并将Request传递给它。RequestQueue管理后台工作线程获取网络内容、读写Cache、解析Response。Request负责解析获取到的网络数据，Volley负责将解析后的结果在主线程进行分发。下面是一个简单的例子，从网络获取字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">RequestQueue queue = Volley.newRequestQueue(<span class="keyword">this</span>);</div><div class="line">String url =<span class="string">"http://www.google.com"</span>;</div><div class="line"><span class="comment">// Request a string response from the provided URL.</span></div><div class="line">StringRequest stringRequest = <span class="keyword">new</span> StringRequest(Request.Method.GET, url,</div><div class="line">            <span class="keyword">new</span> Response.Listener() {</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span>(String response) {</div><div class="line">        <span class="comment">// Display the first 500 characters of the response string.</span></div><div class="line">        mTextView.setText(<span class="string">"Response is: "</span>+ response.substring(<span class="number">0</span>,<span class="number">500</span>));</div><div class="line">    }</div><div class="line">}, <span class="keyword">new</span> Response.ErrorListener() {</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span>(VolleyError error) {</div><div class="line">        mTextView.setText(<span class="string">"That didn't work!"</span>);</div><div class="line">    }</div><div class="line">});</div><div class="line"><span class="comment">// Add the request to the RequestQueue.</span></div><div class="line">queue.add(stringRequest);</div></pre></td></tr></table></figure>
+
+<p>首先使用<em>Volley.newRequestQueue(this)</em>来创建一个请求队列，然后创建一个Request，并将这个Request添加到请求队列当中。在这个例子中，StringRequest是Request的具体的一个实现，还有很多种其他类型的Request，并可以编写自己的Request。当添加到队列之后，Volley会自动开始处理队列中的Request（通过<em>PriorityBlockingQueue</em>进行实现），处理结果通过上面所示的<em>Response.Listener</em>与<em>Response.ErrorListener</em>来进行返回。值得注意的是，Volley都在主线程进行结果的返回，你可以直接在listener中进行UI的控制操作。</p>
+<h3 id="取消请求">取消请求</h3>
+<p>Volley的取消网络异常简单方便，一旦Request被取消掉，Volley就不会对listener进行调用。实际中利用到取消请求的情况非常多，在一个activity结束的时候，我们通常会在onStop方法中处理一些没有被反馈的网络请求，并且在listener中判断当前Activity是否存在: <em>getActivity() == null</em>或<em>onSaveInstanceState()</em>是否被调用。而在Volley中，并不需要这些繁琐的判断操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MyTag"</span>;</div><div class="line">StringRequest stringRequest;</div><div class="line">RequestQueue mRequestQueue;</div><div class="line">stringRequest.setTag(TAG);<span class="comment">//或将此Activity(Context)传入也可以</span></div><div class="line">mRequestQueue.add(stringRequest);</div></pre></td></tr></table></figure>
+
+<p>在上面的代码中，我们对Request设置Tag，这个Tag可以是任何类型，可以是当前的Activity，可以是一个字符串，相同Tag的Request表示他们是同一个类型的Request，并可以进行批量的取消：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Override</span></div><div class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span> () {</div><div class="line">    <span class="keyword">super</span>.onStop();</div><div class="line">    <span class="keyword">if</span> (mRequestQueue != <span class="keyword">null</span>) {</div><div class="line">        mRequestQueue.cancelAll(TAG);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="配置RequestQueue请求队列">配置RequestQueue请求队列</h2>
+<p>上面介绍了Volley的最基本的使用方法，本节将介绍如何自定义RequestQueue的配置，让它更适用于你自己的应用程序。</p>
+<h3 id="配置RequestQueue">配置RequestQueue</h3>
+<p>RequestQueue工作过程中，需要两件东西：</p>
+<ul>
+<li>网络请求实现（HttpURLConnection or AndroidHttpClient or ANYHING ELSE）</li>
+<li>缓存空间来对网络请求进行缓存</li>
+</ul>
+<p>关于网络请求实现需要特别说一下，Volley对不同的Android版本提供了不同的网络请求实现，在低于API Level 9 (Gingerbread)的情况下，使用<a href="http://developer.android.com/reference/android/net/http/AndroidHttpClient.html" target="_blank" rel="external">AndroidHttpClient</a>。当高于API Level 9的时候，使用<a href="http://developer.android.com/reference/java/net/HttpURLConnection.html" target="_blank" rel="external">HttpURLConnection</a>。关于为何这么做，可以参考<a href="http://android-developers.blogspot.com/2011/09/androids-http-clients.html" target="_blank" rel="external">这里</a>，当然你也可以使用自己的网络请求实现。</p>
+<p>如下的代码展示了如何对RequestQueue进行配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">RequestQueue mRequestQueue;</div><div class="line"><span class="comment">//初始化Cache空间，可指定大小与地址</span></div><div class="line">Cache cache = <span class="keyword">new</span> DiskBasedCache(getCacheDir(), <span class="number">1024</span> * <span class="number">1024</span>); <span class="comment">// 1MB</span></div><div class="line"><span class="comment">//使用HttpURLConnection作为网络请求实现,若要用AndroidHttpClient，可以使用HttpClientStack</span></div><div class="line">Network network = <span class="keyword">new</span> BasicNetwork(<span class="keyword">new</span> HurlStack());</div><div class="line"><span class="comment">//使用Cache和Network对请求队列进行初始化</span></div><div class="line">mRequestQueue = <span class="keyword">new</span> RequestQueue(cache, network);</div><div class="line">mRequestQueue.start();</div><div class="line">String url =<span class="string">"http://www.myurl.com"</span>;</div><div class="line">StringRequest stringRequest = <span class="keyword">new</span> StringRequest(Request.Method.GET, url,</div><div class="line">        <span class="keyword">new</span> Response.Listener&lt;String&gt;() {</div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span>(String response) {</div><div class="line">        <span class="comment">//处理结果</span></div><div class="line">    }</div><div class="line">},</div><div class="line">    <span class="keyword">new</span> Response.ErrorListener() {</div><div class="line">        <span class="annotation">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span>(VolleyError error) {</div><div class="line">            <span class="comment">//处理错误</span></div><div class="line">    }</div><div class="line">});</div><div class="line"><span class="comment">//将请求添加到队列当中</span></div><div class="line">mRequestQueue.add(stringRequest);</div></pre></td></tr></table></figure>
+
+<h3 id="使用单例模式">使用单例模式</h3>
+<p>在RequestQueue的使用中，你可以随时调用<em>Volley.newRequestQueue()</em>来创建一个请求队列，如果不再想使用此队列了，直接调用stop函数即可。这样做无可厚非，但是一个更有趣的做法是保持一个单例，在整个程序运行的过程中维持这个RequestQueue单例。从易于管理与效率方面，这么做会更好一些。当然还是具体情况具体分析，看哪种使用发放更适合你的使用场景。如果你对单例模式不太了解，可以参见<a href="http://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="external">这里</a>。</p>
+<p>我们在Application.onCreate()中创建这个单例，值得注意的是，传给RequesQueue的Context需要是Application的Context，而不是Activity的Context。放码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> MySingleton {</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MySingleton mInstance;</div><div class="line">    <span class="keyword">private</span> RequestQueue mRequestQueue;</div><div class="line">    <span class="keyword">private</span> ImageLoader mImageLoader;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Context mCtx;</div><div class="line">    <span class="keyword">private</span> <span class="title">MySingleton</span>(Context context) {</div><div class="line">        mCtx = context;</div><div class="line">        mRequestQueue = getRequestQueue();</div><div class="line">        mImageLoader = <span class="keyword">new</span> ImageLoader(mRequestQueue,</div><div class="line">                <span class="keyword">new</span> ImageLoader.ImageCache() {</div><div class="line">            <span class="keyword">private</span> <span class="keyword">final</span> LruCache&lt;String, Bitmap&gt;</div><div class="line">                    cache = <span class="keyword">new</span> LruCache&lt;String, Bitmap&gt;(<span class="number">20</span>);</div><div class="line">            <span class="annotation">@Override</span></div><div class="line">            <span class="keyword">public</span> Bitmap <span class="title">getBitmap</span>(String url) {</div><div class="line">                <span class="keyword">return</span> cache.get(url);</div><div class="line">            }</div><div class="line">            <span class="annotation">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putBitmap</span>(String url, Bitmap bitmap) {</div><div class="line">                cache.put(url, bitmap);</div><div class="line">            }</div><div class="line">        });</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> MySingleton <span class="title">getInstance</span>(Context context) {</div><div class="line">        <span class="keyword">if</span> (mInstance == <span class="keyword">null</span>) {</div><div class="line">            mInstance = <span class="keyword">new</span> MySingleton(context);</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> mInstance;</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> RequestQueue <span class="title">getRequestQueue</span>() {</div><div class="line">        <span class="keyword">if</span> (mRequestQueue == <span class="keyword">null</span>) {</div><div class="line">            <span class="comment">// getApplicationContext() is key, it keeps you from leaking the</span></div><div class="line">            <span class="comment">// Activity or BroadcastReceiver if someone passes one in.</span></div><div class="line">            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> mRequestQueue;</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="keyword">void</span> <span class="title">addToRequestQueue</span>(Request&lt;T&gt; req) {</div><div class="line">        getRequestQueue().add(req);</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> ImageLoader <span class="title">getImageLoader</span>() {</div><div class="line">        <span class="keyword">return</span> mImageLoader;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>写好这个单例模式之后，使用方法就变得异常简单，你可以在不同的Activity中使用如下代码，它们使用的都会是同一个RequestQueue：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取RequestQueue</span></div><div class="line">RequestQueue queue = MySingleton.getInstance(<span class="keyword">this</span>.getApplicationContext()).</div><div class="line">    getRequestQueue();</div><div class="line">...</div><div class="line"><span class="comment">//添加一个Request到RequestQueue中</span></div><div class="line">MySingleton.getInstance(<span class="keyword">this</span>).addToRequestQueue(stringRequest);</div></pre></td></tr></table></figure>
+
+<p>需要注意的是，使用单例模式之后所有的网络请求都将插入到这个队列当中，因此我们在不同的界面中进行跳转的时候，需要注意对一些Request的优先级进行提高，或者是取消一些Request，让当前界面的Request更快速的进行响应。关于Request的取消在上面已经讲过了，这里不再赘述。</p>
+<h2 id="图片的网络请求">图片的网络请求</h2>
+<p>请求图片对于Android应用来说是一个很重要的功能，看上去简单，其实涉及到很多复杂的东西。比如图片的解析，内存的管理，不同设备下的优化等等。Volley对于网络图片支持方面虽然比不上Picasso或UniversalImageLoader等工具，但是在某些场景下，也足够使用了。在这里讲一下使用Volley对图片进行网络请求。</p>
+<p>在Volley中关于图片请求功能部分，提供了三个类：</p>
+<p><strong>ImageRequest</strong>：与StringRequest相同，它继承了Request类，实现了对指定URL的图片进行解码，并将解码后的图片按照规定的大小进行返回。它的牛逼之处是对图片解析和处理的操作都是在后台工作线程进行，不会影响主线程的操作，等到图片处理完毕，再交给主线程进行处理。</p>
+<p><strong>ImageLoader</strong>：它提供了对远程网络图片的缓存功能，牛逼之处是在内存中开辟了一块缓存图片的空间，在进行网络加载时，可以对已加载过的图片从Cache中获取。</p>
+<p><strong>NetworkImageView</strong>：这个更进一步，直接提供了一个加载图片的控件，它其实也是继承了ImageView，使用起来更加方便。牛逼的地方是，当这个View不再显示的时候或被销毁后它会对正在进行的图片Request进行取消，不浪费带宽和CPU资源，屌吗？</p>
+<h3 id="使用ImageRequest">使用ImageRequest</h3>
+<p>使用ImageRequest的方法与使用其他Request的方法大同小异，直接放码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ImageView mImageView;</div><div class="line">String url = <span class="string">"http://i.imgur.com/7spzG.png"</span>;</div><div class="line">mImageView = (ImageView) findViewById(R.id.myImage);</div><div class="line">...</div><div class="line"><span class="comment">//根据URL获取Bitmap，并展示到界面上</span></div><div class="line">ImageRequest request = <span class="keyword">new</span> ImageRequest(url,</div><div class="line">    <span class="keyword">new</span> Response.Listener() {</div><div class="line">        <span class="annotation">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span>(Bitmap bitmap) {</div><div class="line">            mImageView.setImageBitmap(bitmap);</div><div class="line">        }</div><div class="line">    }, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>,</div><div class="line">    <span class="keyword">new</span> Response.ErrorListener() {</div><div class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span>(VolleyError error) {</div><div class="line">            mImageView.setImageResource(R.drawable.image_load_error);</div><div class="line">        }</div><div class="line">    });</div><div class="line"><span class="comment">//添加到单例队列</span></div><div class="line">MySingleton.getInstance(<span class="keyword">this</span>).addToRequestQueue(request);</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p><em>笔者也是小菜鸟，文中可能会有一些误解或者错误的地方，欢迎指出交流</em></p>
+</blockquote>
+<h2 id="什么是Volley">什么是Volley</h2>
+<p>Volley是google在2013年IO大会上推出的一个轻量级HTTP库，可以让Android上面的网络操作的构建变得异常简单，而且响应更加迅速。据说google内部测试了很多种HTTP库，Volley在每一项测试中都取得了最好的成绩。真假不知道，但是这个开源库的内部实现肯定会引起程序猿的兴趣，它内部是如何实现的呢？我们能从这个开源库里面学到一些什么东西呢？这就是接下来一系列的博文给大家讲述的内容。</p>
+]]>
+    
+    </summary>
+    
+      <category term="android,volley" scheme="http://jinyudong.com/tags/android-volley/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Introducing RecyclerView(二)]]></title>
@@ -206,21 +293,6 @@
       <category term="android" scheme="http://jinyudong.com/tags/android/"/>
     
       <category term="material design" scheme="http://jinyudong.com/tags/material-design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Initial Commit]]></title>
-    <link href="http://jinyudong.com/2014/11/08/hello-world/"/>
-    <id>http://jinyudong.com/2014/11/08/hello-world/</id>
-    <published>2014-11-08T13:38:07.000Z</published>
-    <updated>2014-11-11T15:12:10.000Z</updated>
-    <content type="html"><![CDATA[<p>Blog starts from here.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Blog starts from here.</p>
-]]>
-    </summary>
     
   </entry>
   
