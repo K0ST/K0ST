@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-12-22T17:08:26.901Z</updated>
+  <updated>2014-12-22T17:09:56.507Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2014/12/22/Volley-1/"/>
     <id>http://jinyudong.com/2014/12/22/Volley-1/</id>
     <published>2014-12-22T13:17:06.000Z</published>
-    <updated>2014-12-22T17:07:07.000Z</updated>
+    <updated>2014-12-22T17:09:48.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p><em>笔者也是小菜鸟，文中可能会有一些误解或者错误的地方，欢迎指出交流</em></p>
 </blockquote>
@@ -86,7 +86,7 @@
 <p>使用ImageRequest的方法与使用其他Request的方法大同小异，直接放码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ImageView mImageView;</div><div class="line">String url = <span class="string">"http://i.imgur.com/7spzG.png"</span>;</div><div class="line">mImageView = (ImageView) findViewById(R.id.myImage);</div><div class="line">...</div><div class="line"><span class="comment">//根据URL获取Bitmap，并展示到界面上</span></div><div class="line">ImageRequest request = <span class="keyword">new</span> ImageRequest(url,</div><div class="line">    <span class="keyword">new</span> Response.Listener() {</div><div class="line">        <span class="annotation">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span>(Bitmap bitmap) {</div><div class="line">            mImageView.setImageBitmap(bitmap);</div><div class="line">        }</div><div class="line">    }, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>,</div><div class="line">    <span class="keyword">new</span> Response.ErrorListener() {</div><div class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onErrorResponse</span>(VolleyError error) {</div><div class="line">            mImageView.setImageResource(R.drawable.image_load_error);</div><div class="line">        }</div><div class="line">    });</div><div class="line"><span class="comment">//添加到单例队列</span></div><div class="line">MySingleton.getInstance(<span class="keyword">this</span>).addToRequestQueue(request);</div></pre></td></tr></table></figure>
 
-]]></content>
+<to be="" continued=""></to>]]></content>
     <summary type="html">
     <![CDATA[<blockquote>
 <p><em>笔者也是小菜鸟，文中可能会有一些误解或者错误的地方，欢迎指出交流</em></p>
