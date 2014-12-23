@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-12-23T02:49:02.732Z</updated>
+  <updated>2014-12-23T02:56:36.913Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2014/12/22/Volley-1/"/>
     <id>http://jinyudong.com/2014/12/22/Volley-1/</id>
     <published>2014-12-22T13:17:06.000Z</published>
-    <updated>2014-12-23T02:47:20.000Z</updated>
+    <updated>2014-12-23T02:56:25.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p><em>笔者也是小菜鸟，文中可能会有一些误解或者错误的地方，欢迎指出交流</em></p>
 </blockquote>
@@ -148,7 +148,7 @@
 
 <p>在这里没有将<t>具体化实现，而是可以传递一个Class进来，并使用网络获取的响应和Gson来进行Class的实例化。</t></p>
 <blockquote>
-<p>关于Volley使用的介绍就写到这里，可能会存在一些错误，欢迎指正交流。接下来几篇关于Volley的文章将讲一些Volley内部实现里比较有意思的地方。</p>
+<p>关于Volley使用的介绍就写到这里，可能会存在一些错误，欢迎指正交流。接下来几篇关于Volley的文章将讲一些Volley内部实现里比较有意思的地方。<br>最后奉上一个官方的介绍视频：<a href="https://developers.google.com/events/io/sessions/325304728" target="_blank" rel="external">点我！</a></p>
 </blockquote>
 ]]></content>
     <summary type="html">
