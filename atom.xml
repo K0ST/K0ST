@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2014-12-23T07:55:43.746Z</updated>
+  <updated>2015-03-10T04:05:45.177Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -13,6 +13,107 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android作品集]]></title>
+    <link href="http://jinyudong.com/2015/03/09/works/"/>
+    <id>http://jinyudong.com/2015/03/09/works/</id>
+    <published>2015-03-09T04:03:28.000Z</published>
+    <updated>2015-03-10T04:04:52.000Z</updated>
+    <content type="html"><![CDATA[<p>#</p>
+<h2 id="弹窗信息">弹窗信息</h2>
+<p>是一款让你在Android设备上拥有ios通知功能的软件，除此之外还有很多个性化设置，在功能和体验上更加完善。在各大市场均可下载。</p>
+<p>下载量：<strong>500万次（免费付费各大市场总和）</strong></p>
+<p>累计用户：<strong>70万人（按独立设备统计）</strong></p>
+<p>日弹窗量：<strong>200万次</strong></p>
+<p>技术创新：</p>
+<ol>
+<li>仿照系统源码重新开发设置界面(K-PreferencScreen)，使其更加灵活多变；</li>
+<li>主题切换功能（包括皮肤、自定义颜色等等）；</li>
+<li>可视化投票模块（使用RecyclerView等），让用户可以发布自己的投票表达意见。</li>
+</ol>
+<p>部分截图如下：</p>
+<p><img src="http://sinacloud.net/kost-works/pics/tanchuang.jpg" alt=""></p>
+<h2 id="魅手机隐私锁">魅手机隐私锁</h2>
+<p>是一款独立设计与开发的手机锁定软件，可以锁定App与文件等。七大锁定模式：九宫格锁定模式、手势锁定模式、密码锁定模式、程序假死锁定模式、提示锁定模式、不执行模式、程序跳转模式。每个模式的作用具体是什么还需要您自己来体会。文件隐藏：不仅仅可以隐藏android系统下面的文件，而且当手机作为u盘连接到windows电脑上面时，文件也会被隐藏的天衣无缝。</p>
+<p>下载量：<strong>12万次（魅族市场收费版）</strong></p>
+<p>技术难点：</p>
+<ol>
+<li>防止用户破解，保证锁定的坚固有效；</li>
+<li>密码等隐私信息的存储；</li>
+</ol>
+<p>截图如下：</p>
+<p><img src="http://sinacloud.net/kost-works/pics/lock.jpg" alt=""></p>
+<h2 id="计划派">计划派</h2>
+<p>如果你正被每天琐碎的种种急得焦头烂额，如果你曾因为忘了准备礼物而让TA生气，如果你渴望把一切打理的井井有条，那么“计划派”正是你的不二选择！她将为你提供：最简单易用的计划管理列表；最轻松自如的交互操作；最简洁大方的用户界面。她让繁杂的事物变得亲切有序，让远大的目标变得真实可企及。</p>
+<p>下载量：<strong>5万次</strong></p>
+<p>技术难点：</p>
+<ol>
+<li>列表的拖动与排序功能；</li>
+<li>自定义时间Picker的效率优化与时间展示问题。</li>
+</ol>
+<p>截图如下：</p>
+<p><img src="http://sinacloud.net/kost-works/pics/jihuapai.jpg" alt=""></p>
+<h2 id="夜间模式">夜间模式</h2>
+<p>你是否有晚上玩手机的习惯？是否觉得最小亮度还是刺眼？《夜间模式》可帮您将亮度降到更低！保护您的双眼！并具备手电筒功能哦~</p>
+<p>下载量：<strong>16万次（魅族市场收费版）</strong></p>
+<p>技术实现：本软件实现较为简单，使用WindowManager创建覆盖整个屏幕的悬浮窗即可。仅使用了两天开发的时间，但是还取得了比较好的销量，着实比较意外。</p>
+<p>截图如下：</p>
+<p><img src="http://sinacloud.net/kost-works/pics/night.jpg" alt=""></p>
+<h2 id="大象框">大象框</h2>
+<p>大象框是赵云科技的一款新产品，简单来说是一个云电子相框，可以通过手机向异地的长辈传送照片，免去让他们操作复杂手机的烦恼。我在其中独自负责相框端软件的开发。</p>
+<p>官方网站：<a href="www.zhaoyuntech.com">大象框</a></p>
+<p>技术难点：</p>
+<ol>
+<li>低端平板上大量高清图片的展示与存储（需要良好的内存管理避免OOM）；</li>
+<li>低端平板上交互的重构与流畅度优化。</li>
+</ol>
+<p>![](<a href="http://www.zhaoyuntech.com/img/function2.png）" target="_blank" rel="external">http://www.zhaoyuntech.com/img/function2.png）</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#</p>
+<h2 id="弹窗信息">弹窗信息</h2>
+<p>是一款让你在Android设备上拥有ios通知功能的软件，除此之外还有很多个性化设置，在功能和体验上更加完善。在各大市场均可下载。</p>
+<p>下载量：<strong>500万次（免费付费各大市场总和）</]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[庖丁解牛之Volley篇(二) - 简单框架介绍]]></title>
+    <link href="http://jinyudong.com/2015/01/04/volley-2/"/>
+    <id>http://jinyudong.com/2015/01/04/volley-2/</id>
+    <published>2015-01-04T09:01:38.000Z</published>
+    <updated>2015-02-14T01:53:14.000Z</updated>
+    <content type="html"><![CDATA[<p>在上一个文章中，详细的介绍了Volley与它的全部的使用方法。当然仅仅会使用开源项目对于一个有情怀的码农来说简直是太Low了，我们就是有情怀的码农，不仅要会使用，还要学习一下内部的构造与原理。看看这个东西是如何设计的，有哪些奇技淫巧，哪些是值得我们来学习的地方。本文主要介绍Volley的整体框架。</p>
+<a id="more"></a>
+
+<h2 id="框架概述">框架概述</h2>
+<p>都说学习一门语言或者一个项目最好的地方就是官方文档。Google的官网也给出了Volley的框架图，画的还算是不错。框架图如下：</p>
+<p><img src="http://developer.android.com/images/training/volley-request.png" alt="Volley框架图"></p>
+<p>从图中可以看到三种颜色的方块。蓝色代表主线程，绿色代表缓存线程，橙色代表网络线程。</p>
+<ol>
+<li>首先在主线程（UI线程）中我们将请求（Request）添加到请求队列中。</li>
+<li>缓存线程的CacheDispatcher将队列中的Request取出，在Cache中进行匹配。</li>
+<li>Cache命中代表已缓存此内容，将其读出返回到主线程中。Cache未命中则进行下一步。</li>
+<li>NetworkDispatcher将未命中的Request取出，使用HttpStack进行网络请求。</li>
+<li>将网络获取内容解析，返回到主线程中。</li>
+</ol>
+<p>简单来说，Volley的使用者在主线程添加Request，相当于一个生产者。而为了不阻塞UI线程，使用CacheDispatcher与NetworkDispatcher两个相当于消费者的角色在单独的线程中对Request进行消化处理。先经过CacheDispatcher处理，如果处理不了（Cache miss）就交给NetworkDispatcher处理。最后将处理后的结果格式化，交回给主线程，供开发者使用或展示等等。接下来我们来看一下代码就清楚了：</p>
+<p>首先看Volley.java的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Volley</span> </span>{</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_CACHE_DIR = <span class="string">"volley"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> RequestQueue <span class="title">newRequestQueue</span>(Context context, HttpStack stack) {</div><div class="line">        File cacheDir = <span class="keyword">new</span> File(context.getCacheDir(), DEFAULT_CACHE_DIR);</div><div class="line">        String userAgent = <span class="string">"volley/0"</span>;</div><div class="line">        <span class="keyword">try</span> {</div><div class="line">            String packageName = context.getPackageName();</div><div class="line">            PackageInfo info = context.getPackageManager().getPackageInfo(packageName, <span class="number">0</span>);</div><div class="line">            userAgent = packageName + <span class="string">"/"</span> + info.versionCode;</div><div class="line">        } <span class="keyword">catch</span> (NameNotFoundException e) {</div><div class="line">        }</div><div class="line">        <span class="keyword">if</span> (stack == <span class="keyword">null</span>) {</div><div class="line">            <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">9</span>) {</div><div class="line">                stack = <span class="keyword">new</span> HurlStack();</div><div class="line">            } <span class="keyword">else</span> {</div><div class="line">                stack = <span class="keyword">new</span> HttpClientStack(AndroidHttpClient.newInstance(userAgent));</div><div class="line">            }</div><div class="line">        }</div><div class="line">        Network network = <span class="keyword">new</span> BasicNetwork(stack);</div><div class="line">        RequestQueue queue = <span class="keyword">new</span> RequestQueue(<span class="keyword">new</span> DiskBasedCache(cacheDir), network);</div><div class="line">        queue.start();</div><div class="line">        <span class="keyword">return</span> queue;</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> RequestQueue <span class="title">newRequestQueue</span>(Context context) {</div><div class="line">        <span class="keyword">return</span> newRequestQueue(context, <span class="keyword">null</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>这里代码比较容易理解，首先为每个应用穿件单独的cache文件夹。然后创建HttpStack，这里分为两种，在上一篇文章中已经说过，这里不再赘述。然后构建一个RequestQueue并start。没什么特别之处，接下来看看RequestQueue.java的源码：</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在上一个文章中，详细的介绍了Volley与它的全部的使用方法。当然仅仅会使用开源项目对于一个有情怀的码农来说简直是太Low了，我们就是有情怀的码农，不仅要会使用，还要学习一下内部的构造与原理。看看这个东西是如何设计的，有哪些奇技淫巧，哪些是值得我们来学习的地方。本文主要介绍Volley的整体框架。</p>
+]]>
+    
+    </summary>
+    
+      <category term="android volley 源码" scheme="http://jinyudong.com/tags/android-volley-%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[庖丁解牛之Volley篇(一) - 简单介绍与使用方法]]></title>
