@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2015-03-10T04:30:44.093Z</updated>
+  <updated>2015-03-10T04:33:17.175Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2015/03/09/works/"/>
     <id>http://jinyudong.com/2015/03/09/works/</id>
     <published>2015-03-09T04:03:28.000Z</published>
-    <updated>2015-03-10T04:30:37.000Z</updated>
+    <updated>2015-03-10T04:33:09.000Z</updated>
     <content type="html"><![CDATA[<hr>
 <p>从2012年开始学习开发Android应用，到现在已经上线了七八款应用。对于应用的开发流程、优化等也有一定的了解，大部分都是独立设计界面与开发编码的，下面选一些比较有代表性的作品进行简单的展示介绍。</p>
 <a id="more"></a>
@@ -29,7 +29,7 @@
 <p>下载量：<strong>500万次（免费付费各大市场总和）</strong></p>
 <p>累计用户：<strong>70万人（按独立设备统计）</strong></p>
 <p>日弹窗量：<strong>200万次</strong></p>
-<p>荣耀达成：<strong>魅族首页推荐、付费排行榜第一名</strong></p>
+<p>荣耀达成：<strong>魅族软件中心首页推荐、付费排行榜第一名</strong></p>
 <p>技术创新：</p>
 <ol>
 <li>仿照系统源码重新开发设置界面(K-PreferencScreen)，使其更加灵活多变；</li>
@@ -37,11 +37,11 @@
 <li>可视化投票模块（使用RecyclerView等），让用户可以发布自己的投票表达意见。</li>
 </ol>
 <p>部分截图如下：</p>
-<p><img src="http://sinacloud.net/kost-works/pics/tanchuang.jpg" alt=""></p>
+<p><img src="http://sinacloud.net/kost-works/pics/popup.jpg" alt=""></p>
 <h1 id="魅手机隐私锁">魅手机隐私锁</h1>
 <p>是一款独立设计与开发的手机锁定软件，可以锁定App与文件等。七大锁定模式：九宫格锁定模式、手势锁定模式、密码锁定模式、程序假死锁定模式、提示锁定模式、不执行模式、程序跳转模式。每个模式的作用具体是什么还需要您自己来体会。文件隐藏：不仅仅可以隐藏android系统下面的文件，而且当手机作为u盘连接到windows电脑上面时，文件也会被隐藏的天衣无缝。</p>
 <p>下载量：<strong>12万次（魅族市场收费版）</strong></p>
-<p>荣耀达成：<strong>魅族首页推荐、付费排行榜第一名</strong></p>
+<p>荣耀达成：<strong>魅族软件中心首页推荐、付费排行榜第一名</strong></p>
 <p>技术难点：</p>
 <ol>
 <li>防止用户破解，保证锁定的坚固有效；</li>
@@ -52,7 +52,7 @@
 <h1 id="计划派">计划派</h1>
 <p>如果你正被每天琐碎的种种急得焦头烂额，如果你曾因为忘了准备礼物而让TA生气，如果你渴望把一切打理的井井有条，那么“计划派”正是你的不二选择！她将为你提供：最简单易用的计划管理列表；最轻松自如的交互操作；最简洁大方的用户界面。她让繁杂的事物变得亲切有序，让远大的目标变得真实可企及。</p>
 <p>下载量：<strong>5万次</strong></p>
-<p>荣耀达成：<strong>魅族首页推荐</strong></p>
+<p>荣耀达成：<strong>魅族软件中心首页推荐</strong></p>
 <p>技术难点：</p>
 <ol>
 <li>列表的拖动与排序功能；</li>
@@ -63,7 +63,7 @@
 <h1 id="夜间模式">夜间模式</h1>
 <p>你是否有晚上玩手机的习惯？是否觉得最小亮度还是刺眼？《夜间模式》可帮您将亮度降到更低！保护您的双眼！并具备手电筒功能哦~</p>
 <p>下载量：<strong>16万次（魅族市场收费版）</strong></p>
-<p>荣耀达成：<strong>魅族首页推荐</strong></p>
+<p>荣耀达成：<strong>魅族软件中心首页推荐</strong></p>
 <p>技术实现：本软件实现较为简单，使用WindowManager创建覆盖整个屏幕的悬浮窗即可。仅使用了两天开发的时间，但是还取得了比较好的销量，着实比较意外。</p>
 <p>截图如下：</p>
 <p><img src="http://sinacloud.net/kost-works/pics/night.jpg" alt=""></p>
