@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2015-03-10T04:33:17.175Z</updated>
+  <updated>2015-03-10T04:34:31.442Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jinyudong.com/2015/03/09/works/"/>
     <id>http://jinyudong.com/2015/03/09/works/</id>
     <published>2015-03-09T04:03:28.000Z</published>
-    <updated>2015-03-10T04:33:09.000Z</updated>
+    <updated>2015-03-10T04:34:27.000Z</updated>
     <content type="html"><![CDATA[<hr>
 <p>从2012年开始学习开发Android应用，到现在已经上线了七八款应用。对于应用的开发流程、优化等也有一定的了解，大部分都是独立设计界面与开发编码的，下面选一些比较有代表性的作品进行简单的展示介绍。</p>
 <a id="more"></a>
@@ -69,7 +69,7 @@
 <p><img src="http://sinacloud.net/kost-works/pics/night.jpg" alt=""></p>
 <h1 id="大象框">大象框</h1>
 <p>大象框是赵云科技的一款新产品，简单来说是一个云电子相框，可以通过手机向异地的长辈传送照片，免去让他们操作复杂手机的烦恼。我在其中独自负责相框端软件的开发。</p>
-<p>官方网站：<a href="www.zhaoyuntech.com">大象框</a></p>
+<p>官方网站：<a href="http://www.zhaoyuntech.com" target="_blank" rel="external">大象框</a></p>
 <p>技术难点：</p>
 <ol>
 <li>低端平板上大量高清图片的展示与存储（需要良好的内存管理避免OOM）；</li>
