@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do not ship shits.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jinyudong.com/"/>
-  <updated>2015-03-10T04:55:53.101Z</updated>
+  <updated>2015-03-10T04:57:42.215Z</updated>
   <id>http://jinyudong.com/</id>
   
   <author>
@@ -80,42 +80,6 @@
 <h1 id="弹窗信息">弹窗信息</h1>
 <p>这]]>
     </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[庖丁解牛之Volley篇(二) - 简单框架介绍]]></title>
-    <link href="http://jinyudong.com/2015/01/04/volley-2/"/>
-    <id>http://jinyudong.com/2015/01/04/volley-2/</id>
-    <published>2015-01-04T09:01:38.000Z</published>
-    <updated>2015-02-14T01:53:14.000Z</updated>
-    <content type="html"><![CDATA[<p>在上一个文章中，详细的介绍了Volley与它的全部的使用方法。当然仅仅会使用开源项目对于一个有情怀的码农来说简直是太Low了，我们就是有情怀的码农，不仅要会使用，还要学习一下内部的构造与原理。看看这个东西是如何设计的，有哪些奇技淫巧，哪些是值得我们来学习的地方。本文主要介绍Volley的整体框架。</p>
-<a id="more"></a>
-
-<h2 id="框架概述">框架概述</h2>
-<p>都说学习一门语言或者一个项目最好的地方就是官方文档。Google的官网也给出了Volley的框架图，画的还算是不错。框架图如下：</p>
-<p><img src="http://developer.android.com/images/training/volley-request.png" alt="Volley框架图"></p>
-<p>从图中可以看到三种颜色的方块。蓝色代表主线程，绿色代表缓存线程，橙色代表网络线程。</p>
-<ol>
-<li>首先在主线程（UI线程）中我们将请求（Request）添加到请求队列中。</li>
-<li>缓存线程的CacheDispatcher将队列中的Request取出，在Cache中进行匹配。</li>
-<li>Cache命中代表已缓存此内容，将其读出返回到主线程中。Cache未命中则进行下一步。</li>
-<li>NetworkDispatcher将未命中的Request取出，使用HttpStack进行网络请求。</li>
-<li>将网络获取内容解析，返回到主线程中。</li>
-</ol>
-<p>简单来说，Volley的使用者在主线程添加Request，相当于一个生产者。而为了不阻塞UI线程，使用CacheDispatcher与NetworkDispatcher两个相当于消费者的角色在单独的线程中对Request进行消化处理。先经过CacheDispatcher处理，如果处理不了（Cache miss）就交给NetworkDispatcher处理。最后将处理后的结果格式化，交回给主线程，供开发者使用或展示等等。接下来我们来看一下代码就清楚了：</p>
-<p>首先看Volley.java的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Volley</span> </span>{</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_CACHE_DIR = <span class="string">"volley"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> RequestQueue <span class="title">newRequestQueue</span>(Context context, HttpStack stack) {</div><div class="line">        File cacheDir = <span class="keyword">new</span> File(context.getCacheDir(), DEFAULT_CACHE_DIR);</div><div class="line">        String userAgent = <span class="string">"volley/0"</span>;</div><div class="line">        <span class="keyword">try</span> {</div><div class="line">            String packageName = context.getPackageName();</div><div class="line">            PackageInfo info = context.getPackageManager().getPackageInfo(packageName, <span class="number">0</span>);</div><div class="line">            userAgent = packageName + <span class="string">"/"</span> + info.versionCode;</div><div class="line">        } <span class="keyword">catch</span> (NameNotFoundException e) {</div><div class="line">        }</div><div class="line">        <span class="keyword">if</span> (stack == <span class="keyword">null</span>) {</div><div class="line">            <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">9</span>) {</div><div class="line">                stack = <span class="keyword">new</span> HurlStack();</div><div class="line">            } <span class="keyword">else</span> {</div><div class="line">                stack = <span class="keyword">new</span> HttpClientStack(AndroidHttpClient.newInstance(userAgent));</div><div class="line">            }</div><div class="line">        }</div><div class="line">        Network network = <span class="keyword">new</span> BasicNetwork(stack);</div><div class="line">        RequestQueue queue = <span class="keyword">new</span> RequestQueue(<span class="keyword">new</span> DiskBasedCache(cacheDir), network);</div><div class="line">        queue.start();</div><div class="line">        <span class="keyword">return</span> queue;</div><div class="line">    }</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> RequestQueue <span class="title">newRequestQueue</span>(Context context) {</div><div class="line">        <span class="keyword">return</span> newRequestQueue(context, <span class="keyword">null</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>这里代码比较容易理解，首先为每个应用穿件单独的cache文件夹。然后创建HttpStack，这里分为两种，在上一篇文章中已经说过，这里不再赘述。然后构建一个RequestQueue并start。没什么特别之处，接下来看看RequestQueue.java的源码：</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在上一个文章中，详细的介绍了Volley与它的全部的使用方法。当然仅仅会使用开源项目对于一个有情怀的码农来说简直是太Low了，我们就是有情怀的码农，不仅要会使用，还要学习一下内部的构造与原理。看看这个东西是如何设计的，有哪些奇技淫巧，哪些是值得我们来学习的地方。本文主要介绍Volley的整体框架。</p>
-]]>
-    
-    </summary>
-    
-      <category term="android volley 源码" scheme="http://jinyudong.com/tags/android-volley-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
